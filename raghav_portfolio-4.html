@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raghav | Portfolio</title>
+  <style>
+:root {
+  --background: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --muted: #6b6b7b;
+  --accent: #8a6a2f;
+  --border: #e6e1d8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 120px 24px;
+  animation: fadeIn 1s ease;
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+}
+
+.hero h1 {
+  font-size: 3.6rem;
+  line-height: 1.15;
+  margin: 14px 0;
+  animation: slideIn 0.8s ease;
+}
+
+.role {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 480px;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--background);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--text);
+  color: var(--background);
+}
+
+/* Sections */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.section > p {
+  max-width: 620px;
+  color: var(--muted);
+}
+
+/* Grid and cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.projects-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 24px rgba(26, 26, 46, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.8s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(26, 26, 46, 0.18);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.tech {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
+.link + .link {
+  margin-left: 18px;
+}
+
+/* Contact */
+.contact-list {
+  max-width: 480px;
+}
+
+.contact-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-list span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.contact-list a:hover {
+  color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  background: #efe9dd;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 28px 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    padding: 60px 24px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+<style>
+#shoe-preview { display: none; position: fixed; inset: 0; z-index: 100; background: #faf8f5; flex-direction: column; }
+#shoe-preview:target { display: flex; }
+#shoe-preview .bar { padding: 12px 24px; border-bottom: 1px solid #e6e1d8; font-size: 0.9rem; }
+#shoe-preview .bar a { color: #8a6a2f; font-weight: bold; }
+#shoe-preview iframe { flex: 1; width: 100%; border: 0; }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav">
+      <a href="#hero" class="logo">Raghav</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Hi, my name is Raghav</h1>
+      <p class="role">Computer Science Student and Web Developer</p>
+      <p class="intro">I build websites using HTML, CSS and JavaScript.</p>
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>I am a Computer Science student at Scaler School of Technology, Bangalore. I learn by building projects, and I am interested in robotics, automation and quantitative finance.</p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="grid skills-grid">
+        <div class="card">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <p>Git, GitHub, VS Code</p>
+        </div>
+        <div class="card">
+          <h3>Currently Learning</h3>
+          <p>Python, App Development</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="grid projects-grid">
+        <article class="card">
+          <h3>Shoe Store Website</h3>
+          <p>A simple shoe store website with a product grid.</p>
+          <p class="tech">HTML • CSS</p>
+          <a href="#shoe-preview" class="link">View Website</a>
+          <a href="https://github.com/Raghav10-tech" target="_blank" rel="noopener" class="link">GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>B.Tech in Computer Science</h3>
+        <p>Scaler School of Technology, Bangalore</p>
+        <p class="tech">2026 — Present</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:raghavasv1234@gmail.com">raghavasv1234@gmail.com</a></li>
+        <li><span>GitHub</span><a href="https://github.com/Raghav10-tech" target="_blank" rel="noopener">github.com/Raghav10-tech</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Raghav</p>
+    <p><a href="https://github.com/Raghav10-tech" target="_blank" rel="noopener">GitHub</a> | <a href="mailto:raghavasv1234@gmail.com">Email</a></p>
+  </footer>
+
+<div id="shoe-preview"><div class="bar"><a href="#projects">&larr; Back to Home</a></div><iframe title="Shoe Store Website" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;StepUp Shoes&lt;/title&gt;
+  &lt;style&gt;
+:root {
+  --background: #faf8f5;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --muted: #6b6b7b;
+  --accent: #8a6a2f;
+  --border: #e6e1d8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: Georgia, &quot;Times New Roman&quot;, serif;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links .back {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Hero */
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 100px 24px;
+  animation: fadeIn 1s ease;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--text);
+  color: var(--background);
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Sections */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.section &gt; p {
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.section a {
+  color: var(--accent);
+}
+
+/* Products */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 16px 24px;
+  box-shadow: 0 6px 18px rgba(26, 26, 46, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(26, 26, 46, 0.15);
+}
+
+.image {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.product h3 {
+  font-size: 1.2rem;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.product .price {
+  margin-top: 8px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: #efe9dd;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 28px 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    padding: 60px 24px;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;header class=&quot;header&quot;&gt;
+    &lt;nav class=&quot;nav&quot;&gt;
+      &lt;a href=&quot;#top&quot; class=&quot;logo&quot;&gt;StepUp Shoes&lt;/a&gt;
+      &lt;ul class=&quot;nav-links&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#shop&quot;&gt;Shop&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#projects&quot; target=&quot;_top&quot; class=&quot;back&quot;&gt;&amp;larr; Back to Home&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main id=&quot;top&quot;&gt;
+
+    &lt;section class=&quot;hero&quot;&gt;
+      &lt;h1&gt;Find Your Perfect Pair&lt;/h1&gt;
+      &lt;p&gt;Comfortable shoes for every day, every run and every occasion.&lt;/p&gt;
+      &lt;a href=&quot;#shop&quot; class=&quot;btn&quot;&gt;Shop Now&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;shop&quot; class=&quot;section&quot;&gt;
+      &lt;h2&gt;Our Shoes&lt;/h2&gt;
+      &lt;div class=&quot;products&quot;&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #d9c7a3;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;Classic Runner&lt;/h3&gt;
+          &lt;p&gt;Light and breathable for daily runs.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹2,499&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #b8c4d6;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;City Walker&lt;/h3&gt;
+          &lt;p&gt;Soft cushioning for long walks.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹1,999&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #c9d6b8;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;Trail Pro&lt;/h3&gt;
+          &lt;p&gt;Strong grip for rough ground.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹3,299&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #e0b8b8;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;Street Low&lt;/h3&gt;
+          &lt;p&gt;Clean everyday sneaker.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹1,799&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #cfcfcf;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;Court Classic&lt;/h3&gt;
+          &lt;p&gt;Simple white leather style.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹2,799&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;product&quot;&gt;
+          &lt;div class=&quot;image&quot; style=&quot;background: #bfb2d6;&quot;&gt;👟&lt;/div&gt;
+          &lt;h3&gt;Sprint Max&lt;/h3&gt;
+          &lt;p&gt;Built for speed and comfort.&lt;/p&gt;
+          &lt;p class=&quot;price&quot;&gt;₹3,799&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;about&quot; class=&quot;section&quot;&gt;
+      &lt;h2&gt;About Us&lt;/h2&gt;
+      &lt;p&gt;We sell simple, comfortable shoes at fair prices. Every pair is chosen for quality and everyday use.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;contact&quot; class=&quot;section&quot;&gt;
+      &lt;h2&gt;Contact&lt;/h2&gt;
+      &lt;p&gt;Email: &lt;a href=&quot;mailto:raghavasv1234@gmail.com&quot;&gt;raghavasv1234@gmail.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+
+  &lt;/main&gt;
+
+  &lt;footer class=&quot;footer&quot;&gt;
+    &lt;p&gt;&amp;copy; 2026 StepUp Shoes. Demo project.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;#projects&quot; target=&quot;_top&quot;&gt;&amp;larr; Back to Home&lt;/a&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div>
+</body>
+</html>
